@@ -1,0 +1,32 @@
+{
+  "schema_version": "auto_deploy.checker_result.v1",
+  "role": "checker",
+  "iteration_id": "",
+  "created_at_utc": "",
+  "inputs": {
+    "metrics_path": "",
+    "benchmark_type": "auto",
+    "diff_report_path": "",
+    "require_warmup": true
+  },
+  "benchmark_valid": false,
+  "implementation_valid": false,
+  "recommendation": "rerun",
+  "static_audit": {
+    "status": "not_run",
+    "notes": []
+  },
+  "integrity_checks": {
+    "passed": [],
+    "failed": []
+  },
+  "implementation_issues": [],
+  "summary": {
+    "num_cases": 0,
+    "num_rows": 0,
+    "variants": [],
+    "benchmark_config": {}
+  },
+  "variant_results": [],
+  "next_reviewer_notes": []
+}

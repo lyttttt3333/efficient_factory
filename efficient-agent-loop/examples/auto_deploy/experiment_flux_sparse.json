@@ -1,0 +1,48 @@
+{
+  "name": "flux-schnell-sparse-next-action",
+  "goal": "Choose the next controlled Flux Schnell optimization step toward the strongest compatible skill stack.",
+  "instructions": "Use the auto_deploy ComfyUI role READMEs, active skill registry, and prior benchmark artifacts to optimize combinations of compatible skills, not just a single isolated skill. Treat every method as a parameterized family and search the speed/quality tradeoff frontier with directed parameter moves, not exhaustive grids. The final deliverable is one composed Flux optimization stack, for example tuned sparse attention plus compile plus selective FFN/Linear quantization, with incompatible components explicitly ruled out by measured evidence. The objective is maximum practical acceleration while preserving correctness and required multimodal visual quality.",
+  "target_files": [
+    "efficient_skill/cache/",
+    "draft_canvas/flux_schnell_candidate_canvas.py",
+    "draft_canvas/flux_schnell_cache_canvas.py",
+    "comfy_extras/nodes_reuse_cache.py",
+    "benchmark/flux_schnell_benchmark.py",
+    "efficient_skill/quantization/",
+    "draft_canvas/flux_schnell_quantization_canvas.py",
+    "comfy_extras/nodes_quantization.py",
+    "efficient_skill/sparse_attention/",
+    "draft_canvas/flux_schnell_sparse_attention_canvas.py",
+    "comfy_extras/nodes_sparse_attention.py"
+  ],
+  "constraints": [
+    "Reviewer must not modify code.",
+    "Executor must keep prompt, seed, official model hyperparameters, and image metrics fixed unless the user explicitly overrides them.",
+    "If no user override is present, Reviewer/Executor/Checker must use official model defaults for resolution, inference steps, guidance/CFG, sampler, scheduler, time shift, and model-specific coefficients.",
+    "For the current FLUX.1-schnell handoff, use 1024x1024, 4 inference steps, guidance_scale=0.0, and max_sequence_length=256 unless a model-card/config override is explicitly recorded.",
+    "Legacy small-resolution smoke settings such as 512x512 are debug-only and must not be used as acceptance evidence.",
+    "When official benchmark configuration changes, Checker must use a fresh run-level baseline artifact for that fixed configuration.",
+    "Executor must default to canvas/config/experiment wiring and treat efficient_skill/ plus benchmark/ as restricted edit surfaces.",
+    "Executor must put the runnable candidate model behind draft_canvas/flux_schnell_candidate_canvas.py; Checker only evaluates that candidate wrapper.",
+    "Checker commands must not include skill-specific implementation details such as sparse attention, quantization recipe, density, topk, apply_to, or compile scope.",
+    "Executor may modify restricted edit surfaces only when reviewer_next_action.json explicitly authorizes efficient_skill or benchmark with an allowed reason.",
+    "All formal Flux checker runs must use the unified benchmark interface: benchmark/flux_schnell_benchmark.py.",
+    "Skill-family benchmark scripts are debug-only and must not be used as acceptance evidence.",
+    "Checker benchmark must use a run-level fixed baseline artifact instead of remeasuring baseline for each candidate iteration.",
+    "Checker must evaluate speed and quantitative quality from benchmark artifacts.",
+    "Checker must run multimodal qualitative review for visual outputs.",
+    "Reviewer must consider compatible skill combinations before accepting.",
+    "Reviewer must keep parameter-search context visible and should direct more aggressive, more conservative, or intermediate parameter moves based on speed/quality evidence.",
+    "Reviewer must not accept only because isolated skills were sampled; a final composed delivery stack must be implemented and benchmarked, or each excluded stack component must have a measured blocker."
+  ],
+  "success_criteria": [
+    "reviewer_next_action.json names one concrete next Flux optimization step.",
+    "reviewer_next_action.json describes how the step fits a broader compatible skill stack.",
+    "reviewer_next_action.json includes parameter_search_policy and final_delivery_policy.",
+    "reviewer_next_action.json includes exact checker command, required visual quality config, and acceptance criteria."
+  ],
+  "metadata": {
+    "group": "sparse_attention",
+    "variant": "pisa"
+  }
+}

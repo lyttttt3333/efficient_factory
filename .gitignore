@@ -1,0 +1,37 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+.codex
+*.log
+
+# Agent-loop runtime state
+.eal/
+agent_loop_state/
+executor_result.json
+checker_result.json
+reviewer_decision.json
+reviewer_plan.json
+
+# Playground runtime artifacts and local assets
+playground/.eal/
+playground/agent_loop_state/
+playground/benchmark/artifacts/
+playground/output/
+playground/input/
+playground/temp/
+playground/user/
+playground/custom_nodes/
+playground/models/
+playground/extra_model_paths.yaml
+playground/.comfy_environment
+playground/uv.lock
+
+# Local editors and environments
+.idea/
+.vscode/
+.vs/
+venv*/
+.venv/

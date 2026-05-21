@@ -1,0 +1,25 @@
+{
+  "schema_version": "auto_deploy.reviewer_plan.v1",
+  "role": "reviewer",
+  "iteration_id": "",
+  "created_at_utc": "",
+  "read_only": true,
+  "current_state": {
+    "active_skills": [],
+    "relevant_artifacts": [],
+    "known_risks": []
+  },
+  "plan": {
+    "target_skill_ids": [],
+    "objective": "",
+    "files_to_inspect": [],
+    "files_allowed_to_edit": [],
+    "benchmark_commands": []
+  },
+  "acceptance_criteria": {
+    "static_checks": [],
+    "benchmark_checks": [],
+    "quality_checks": []
+  },
+  "handoff_notes": []
+}

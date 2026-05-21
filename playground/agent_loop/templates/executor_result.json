@@ -1,0 +1,17 @@
+{
+  "schema_version": "auto_deploy.executor_result.v1",
+  "role": "executor",
+  "iteration_id": "",
+  "created_at_utc": "",
+  "reviewer_plan_path": "reviewer_plan.json",
+  "pre_executor_git_state_path": "agent_loop_state/pre_executor_git_state.json",
+  "executor_diff_path": "agent_loop_state/executor_diff.json",
+  "changed_files": [],
+  "changed_skill_ids": [],
+  "benchmark_interface_changes": [],
+  "commands_run": [],
+  "smoke_results": [],
+  "checker_commands": [],
+  "known_risks": [],
+  "status": "ready_for_checker"
+}

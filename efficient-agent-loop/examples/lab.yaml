@@ -1,0 +1,14 @@
+workdir: "."
+runs_dir: ".eal/runs"
+max_iterations: 2
+commit_on_accept: false
+rollback_on_reject: true
+executor_permission: "auto_review"
+checker_permission: "auto_review"
+reviewer_permission: "auto_review"
+executor_readme: "README_EXECUTOR.md"
+checker_readme: "README_CHECKER.md"
+reviewer_readme: "README_REVIEWER.md"
+executor_command: "python -c \"import json, os; from pathlib import Path; Path('scratch_result.txt').write_text('hello\\n', encoding='utf-8'); Path(os.environ['EAL_EXECUTOR_RESULT']).write_text(json.dumps({'iteration': int(os.environ['EAL_ITERATION']), 'status': 'completed', 'summary': 'Wrote scratch_result.txt.', 'no_diff_reason': None, 'artifacts': {'file': 'scratch_result.txt'}}, indent=2) + '\\n', encoding='utf-8')\""
+checker_command: "python -c \"import json, os; from pathlib import Path; assert Path('scratch_result.txt').read_text(encoding='utf-8').strip() == 'hello'; print('benchmark passed'); Path(os.environ['EAL_CHECKER_RESULT']).write_text(json.dumps({'benchmark_valid': True, 'implementation_valid': True, 'verdict': 'VALID_EFFECTIVE', 'recommendation': 'ACCEPT', 'rationale': 'Benchmark is clean and the toy implementation is correct.', 'speed': {'demo': 'not measured'}, 'quality': {'correctness': 'passed'}}, indent=2) + '\\n', encoding='utf-8')\""
+reviewer_command: ""

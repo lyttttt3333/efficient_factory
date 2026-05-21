@@ -1,0 +1,14 @@
+workdir: "/home/xieenze/yitongl/auto_deploy/ComfyUI"
+runs_dir: ".eal/runs"
+max_iterations: 1
+commit_on_accept: false
+rollback_on_reject: false
+executor_permission: "auto_review"
+checker_permission: "auto_review"
+reviewer_permission: "auto_review"
+executor_readme: "README_EXECUTOR.md"
+checker_readme: "README_CHECKER.md"
+reviewer_readme: "README_REVIEWER.md"
+reviewer_command: "python /home/xieenze/yitongl/codex_iter/efficient-agent-loop/examples/auto_deploy/reviewer_flux.py"
+executor_command: "python -c \"import json, os; from pathlib import Path; Path(os.environ['EAL_EXECUTOR_RESULT']).write_text(json.dumps({'status': 'completed', 'summary': 'Reviewer-output demo only: replace executor_command with a real executor agent command before code-edit runs.', 'no_diff_reason': 'This lab uses a no-op executor so only Reviewer next-action output is exercised.'}, indent=2) + '\\n', encoding='utf-8')\""
+checker_command: "python -c \"import json, os; from pathlib import Path; Path(os.environ['EAL_CHECKER_RESULT']).write_text(json.dumps({'benchmark_valid': True, 'implementation_valid': False, 'verdict': 'INCONCLUSIVE', 'recommendation': 'NEEDS_FIX', 'rationale': 'Reviewer-output demo only: no implementation was executed, so there is nothing to benchmark.', 'speed': {}, 'quality': {}}, indent=2) + '\\n', encoding='utf-8')\""

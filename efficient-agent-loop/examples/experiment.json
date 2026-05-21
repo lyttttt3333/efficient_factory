@@ -1,0 +1,19 @@
+{
+  "name": "toy-create-result-file",
+  "goal": "Create a small result file and verify it with the checker command.",
+  "instructions": "Write scratch_result.txt with the text hello.",
+  "target_files": [
+    "scratch_result.txt"
+  ],
+  "constraints": [
+    "Executor should not decide benchmark success.",
+    "Checker is responsible for validation."
+  ],
+  "success_criteria": [
+    "scratch_result.txt exists.",
+    "The checker command exits with code 0."
+  ],
+  "metadata": {
+    "kind": "toy"
+  }
+}

@@ -1,0 +1,22 @@
+workdir: "/home/xieenze/yitongl/auto_deploy/ComfyUI"
+runs_dir: ".eal/runs"
+max_iterations: 0
+commit_on_accept: false
+rollback_on_reject: false
+executor_permission: "full_access"
+checker_permission: "auto_review"
+reviewer_permission: "auto_review"
+resource_hold_enabled: true
+resource_hold_timeout_seconds: 0
+resource_hold_poll_seconds: 300
+resource_hold_external_memory_threshold_mib: 1024
+retest_delay_seconds: 0
+gpu_retest_wait_timeout_seconds: 0
+gpu_retest_wait_poll_seconds: 300
+gpu_retest_external_memory_threshold_mib: 1024
+executor_readme: "README_EXECUTOR.md"
+checker_readme: "README_CHECKER.md"
+reviewer_readme: "README_REVIEWER.md"
+reviewer_command: "python /home/xieenze/yitongl/codex_iter/efficient-agent-loop/examples/auto_deploy/reviewer_flux.py"
+executor_command: "python /home/xieenze/yitongl/codex_iter/efficient-agent-loop/examples/auto_deploy/run_executor_from_action.py"
+checker_command: "python /home/xieenze/yitongl/codex_iter/efficient-agent-loop/examples/auto_deploy/run_checker_from_action.py"

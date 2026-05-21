@@ -1,0 +1,13 @@
+{
+  "schema_version": "auto_deploy.reviewer_decision.v1",
+  "role": "reviewer",
+  "iteration_id": "",
+  "created_at_utc": "",
+  "checker_result_path": "checker_result.json",
+  "decision": "iterate",
+  "accepted_skill_ids": [],
+  "rejected_skill_ids": [],
+  "next_iteration_goal": "",
+  "next_reviewer_plan_path": "",
+  "notes": []
+}
