@@ -16,12 +16,51 @@ scheduler skeleton that coordinates this order:
 The first version is single-process and sequential. There is no MCP server, web
 UI, or concurrency layer.
 
-## Install
+## New Machine Setup
 
-From this repo:
+The scheduler package is intentionally lightweight. It has no CUDA, conda, MCP,
+model-weight, or web-service dependency. Those requirements belong to the
+Executor or Checker commands you put in `lab.yaml`, not to the loop framework
+itself.
+
+Minimum environment:
+
+- Python 3.10 or newer
+- `git` on `PATH` for real `run` mode, because the scheduler collects git diffs
+- `PyYAML` if you use `.yaml` lab files
+- `pytest` only if you want to run tests
+
+Recommended isolated setup:
 
 ```bash
+git clone https://github.com/lyttttt3333/efficient_factory.git
+cd efficient_factory/efficient-agent-loop
+
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -U pip
+python -m pip install -e ".[yaml,test]"
+```
+
+Runtime-only install options:
+
+```bash
+# JSON lab files only
 python -m pip install -e .
+
+# YAML lab files
+python -m pip install -e ".[yaml]"
+```
+
+Verify the install without touching `playground/`:
+
+```bash
+efficient-agent-loop demo \
+  --experiment examples/experiment.json \
+  --lab examples/lab.yaml \
+  --workdir .
+
+python -m pytest -q
 ```
 
 For local development without installing:
@@ -29,6 +68,10 @@ For local development without installing:
 ```bash
 PYTHONPATH=src python -m efficient_agent_loop.cli --help
 ```
+
+`codex` is optional from this package's perspective. Install and authenticate
+the Codex CLI only if a lab config uses `codex exec ...` as one of the role
+commands.
 
 ## Quick Start
 
